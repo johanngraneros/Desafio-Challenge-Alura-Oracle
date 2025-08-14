@@ -8,3 +8,12 @@ function validarEntrada(nombre) {
 }
 
 
+function agregarAmigo() {
+    let nombresSorteo = document.getElementById('amigo').value
+    
+    if (!validarEntrada(nombre)) return; //Si el nombre no es valido, salgo de la funcion y no agrego nada a la lista.
+    
+    let lista = document.getElementById("listaAmigos");
+    lista.innerHTML += nombre + "<br>";
+    document.getElementById('amigo').value = ""; //limpia el campo de texto después de agregar un nombre a la lista
+}
