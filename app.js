@@ -1,5 +1,5 @@
 // El principal objetivo de este desafío es fortalecer tus habilidades en lógica de programación. Aquí deberás desarrollar la lógica para resolver el problema.
-let nombresAmigos = []
+let nombresAmigos = [] //array con los nombres
 
 function validarEntrada(nombresSorteo) {
     if (nombresSorteo === "") {
@@ -20,3 +20,30 @@ function agregarAmigo() {
     document.getElementById('amigo').value = ""; //limpia el campo de texto después de agregar un nombre a la lista
 }
 
+function actualizarLista(nombresAmigos) {
+    let listaAmigos = document.getElementById('listaAmigos');
+    listaAmigos.innerHTML = ""; //limpio la lista existente para asegurarse de que no haya duplicados al actualizar
+    
+    for (let i = 0;i < nombresAmigos.length ; i++ ){ //el for funciona asi con 3 parametros for (INICIO; CONDICIÓN; ACTUALIZACIÓN) { // CUERPO: lo que se ejecuta en cada vuelta) }
+
+        let nombre = nombresAmigos[i];          // saco el nombre actual del array
+        listaAmigos.innerHTML += `<li>${nombre}</li>`;  // lo agrego a la lista HTML
+   
+    }
+} 
+
+function generarNombreSecreto() {
+    let numeroGenerado =  Math.floor(Math.random()*numeroMaximo)+1;
+
+    console.log(numeroGenerado);
+    console.log(listaNumerosSorteados);
+ 
+        //Si el nombre está incluido en la lista 
+    if (listaAmigos.includes(nombresAmigos)) {
+            return generarNombreSecreto();
+        } else {
+            listaAmigos.push(numeroGenerado);
+            return numeroGenerado;
+        }
+    }
+}
