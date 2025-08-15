@@ -33,17 +33,16 @@ function actualizarLista(nombresAmigos) {
 } 
 
 function generarNombreSecreto() {
-    let numeroGenerado =  Math.floor(Math.random()*numeroMaximo)+1;
-
-    console.log(numeroGenerado);
-    console.log(listaNumerosSorteados);
+    if (nombresAmigos.length === 0) { //Valido si esta vacio o no
+    alert("No hay amigos para sortear");
+    return;
+}
+    let indiceNombreAleatorio =  Math.floor(Math.random() * nombresAmigos.length); //Generar un índice aleatorio
+    let nombreGenerado  = nombresAmigos[indiceNombreAleatorio]; //Obtener el nombre sorteado:
  
-        //Si el nombre está incluido en la lista 
-    if (listaAmigos.includes(nombresAmigos)) {
-            return generarNombreSecreto();
-        } else {
-            listaAmigos.push(numeroGenerado);
-            return numeroGenerado;
-        }
+    document.getElementById("resultado").innerHTML = nombreGenerado;
     }
+
+function reiniciarJuego ( ){
+    listaAmigos.innerHTML = ""; //reinicio la lista
 }
