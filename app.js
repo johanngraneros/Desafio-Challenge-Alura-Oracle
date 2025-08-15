@@ -43,6 +43,9 @@ function generarNombreSecreto() {
     document.getElementById("resultado").innerHTML = nombreGenerado;
     }
 
-function reiniciarJuego ( ){
-    listaAmigos.innerHTML = ""; //reinicio la lista
+function reiniciarJuego() {
+    let listaAmigos = document.getElementById("listaAmigos");
+    listaAmigos.innerHTML = "";
+    nombresAmigos = []; // además, vaciamos el array para reiniciar completamente
+    document.getElementById("resultado").innerHTML = ""; // opcional: limpia el resultado
 }
